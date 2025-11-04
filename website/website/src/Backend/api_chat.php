@@ -4,7 +4,7 @@
 header('Content-Type: application/json');
 // Permet à l'application React (qui tourne sur un port ou domaine différent) de se connecter.
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // L'attaquant peut ajouter ; ou & pour injecter une nouvelle commande.
 
     // Simuler une commande serveur qui écrit le message dans un fichier de log
-    $command = 'echo "[' . date('Y-m-d H:i:s') . '] ' . $data['user'] . ' dit : ' . $message_content . '" >> /tmp/chat_log.txt';
+    $command = 'echo "' . $message_content . '"';
 
     // Exécuter la commande et capturer la sortie et les erreurs
     $output = shell_exec($command);

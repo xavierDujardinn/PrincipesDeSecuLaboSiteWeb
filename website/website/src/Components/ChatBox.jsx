@@ -7,7 +7,7 @@ export const Chatbox = () => {
     const [history, setHistory] = useState([]);
 
     // URL de votre API vulnérable sur la VM Debian
-    const VULNERABLE_API_URL = 'http://votre_ip_debian/api_chat.php';
+    const VULNERABLE_API_URL = 'http://localhost/api_chat.php';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
